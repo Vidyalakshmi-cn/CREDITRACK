@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Login | CrediTrack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-page">
+    <section class="brand-panel">
+      <div class="brand-inner">
+
+  <div class="brand-badge">Faculty Portal</div>
+
+  <h1 class="brand-title">
+    <span>Credi</span>Track
+  </h1>
+
+  <p class="brand-description">
+    A powerful interface for reviewing submissions, verifying certificates,
+    and managing student activity points efficiently.
+  </p>
+
+  <div class="brand-points premium-points">
+
+    <div class="premium-pill">
+      <strong>Fast review</strong>
+      <span>Approve or reject submissions instantly</span>
+    </div>
+
+    <div class="premium-pill">
+      <strong>Pending insights</strong>
+      <span>Track certificates awaiting verification</span>
+    </div>
+
+    <div class="premium-pill">
+      <strong>Student overview</strong>
+      <span>Access student details and performance</span>
+    </div>
+
+    <div class="premium-pill">
+      <strong>Seamless backend</strong>
+      <span>Fully integrated with your Flask system</span>
+    </div>
+
+  </div>
+
+</div>
+    </section>
+
+    <section class="form-panel">
+      <div class="auth-card">
+        <div class="logo"><span class="c1" style="color:var(--navy)">Credi</span><span class="c2">Track</span></div>
+        <div style="margin-top:.7rem">
+          <div id="formTitle" class="hero-title" style="font-size:1.35rem">Faculty Login</div>
+          <div id="formSubtitle" class="hero-sub">Sign in to track your activity points.</div>
+        </div>
+
+        <div class="switch">
+          <button id="loginTab" class="active" type="button">Login</button>
+          <button id="signupTab" type="button">Sign Up</button>
+        </div>
+
+        <div class="stack">
+          <div id="signupFields" class="stack hidden">
+            <div>
+              <label class="label" for="facultyName">Full Name</label>
+              <input class="input" id="facultyName" type="text" placeholder="Enter your name">
+            </div>
+            <div class="form-grid">
+              <div>
+                <label class="label" for="facultyCourse">Course</label>
+                <input class="input" id="facultyCourse" type="text" placeholder="BTECH">
+              </div>
+              <div>
+                <label class="label" for="facultyBranch">Branch</label>
+                <input class="input" id="facultyBranch" type="text" placeholder="CSE">
+              </div>
+              <div>
+                <label class="label" for="facultyDivision">Division</label>
+                <input class="input" id="facultyDivision" type="text" placeholder="A">
+              </div>
+              <div>
+                <label class="label" for="facultySemester">Semester</label>
+                <input class="input" id="facultySemester" type="text" placeholder="6">
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label class="label" for="facultyEmail">Email ID</label>
+            <input class="input" id="facultyEmail" type="email" placeholder="Enter your email">
+          </div>
+
+          <div>
+            <label class="label" for="facultyPassword">Password</label>
+            <input class="input" id="facultyPassword" type="password" placeholder="Enter your password">
+          </div>
+
+          <button id="mainBtn" class="btn btn-primary" type="button" style="width:100%">Login</button>
+          <a class="small-link" href="in.html">← Back to Home</a>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="faculty_login.js"></script>
+</body>
+</html>

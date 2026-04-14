@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Login | CrediTrack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-page">
+    <section class="brand-panel">
+      <div class="brand-inner">
+  <div class="brand-badge">Student Portal</div>
+
+  <h1 class="brand-title">
+    <span>Credi</span>Track
+  </h1>
+
+  <p class="brand-description">
+    A streamlined platform for submitting certificates, tracking activity points,
+    and managing approvals with ease.
+  </p>
+
+  <div class="brand-points premium-points">
+    <div class="brand-pill premium-pill">
+      <strong>Easy uploads</strong>
+      <span>Submit certificates in a few clicks</span>
+    </div>
+
+    <div class="brand-pill premium-pill">
+      <strong>Live tracking</strong>
+      <span>Monitor approved and pending points</span>
+    </div>
+
+    <div class="brand-pill premium-pill">
+      <strong>Smart extraction</strong>
+      <span>Auto-fill details when OCR is available</span>
+    </div>
+
+    <div class="brand-pill premium-pill">
+      <strong>Backend ready</strong>
+      <span>Works smoothly with your Flask setup</span>
+    </div>
+  </div>
+</div>
+    </section>
+
+    <section class="form-panel">
+      <div class="auth-card">
+        <div class="logo"><span class="c1" style="color:var(--navy)">Credi</span><span class="c2">Track</span></div>
+        <div style="margin-top:.7rem">
+          <div id="formTitle" class="hero-title" style="font-size:1.35rem">Student Login</div>
+          <div id="formSubtitle" class="hero-sub">Sign in to track your activity points.</div>
+        </div>
+
+        <div class="switch">
+          <button id="loginTab" class="active" type="button">Login</button>
+          <button id="signupTab" type="button">Sign Up</button>
+        </div>
+
+        <div class="stack">
+          <div id="signupFields" class="stack hidden">
+            <div>
+              <label class="label" for="studentName">Full Name</label>
+              <input class="input" id="studentName" type="text" placeholder="Enter your name">
+            </div>
+            <div class="form-grid">
+              <div>
+                <label class="label" for="course">Course</label>
+                <input class="input" id="course" type="text" placeholder="BTECH">
+              </div>
+              <div>
+                <label class="label" for="branch">Branch</label>
+                <input class="input" id="branch" type="text" placeholder="CSE">
+              </div>
+              <div>
+                <label class="label" for="division">Division</label>
+                <input class="input" id="division" type="text" placeholder="A">
+              </div>
+              <div>
+                <label class="label" for="semester">Semester</label>
+                <input class="input" id="semester" type="text" placeholder="6">
+              </div>
+              <div>
+                <label class="label" for="rollno">Roll No</label>
+                <input class="input" id="rollno" type="text" placeholder="85">
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label class="label" for="studentEmail">Email ID</label>
+            <input class="input" id="studentEmail" type="email" placeholder="Enter your email">
+          </div>
+
+          <div>
+            <label class="label" for="studentPassword">Password</label>
+            <input class="input" id="studentPassword" type="password" placeholder="Enter your password">
+          </div>
+
+          <button id="mainBtn" class="btn btn-primary" type="button" style="width:100%">Login</button>
+          <a class="small-link" href="in.html">← Back to Home</a>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="student_login.js"></script>
+</body>
+</html>

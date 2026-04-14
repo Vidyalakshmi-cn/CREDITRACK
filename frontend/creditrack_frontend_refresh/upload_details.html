@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate Details - CrediTrack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="logo"><span class="c1">Credi</span><span class="c2">Track</span></div>
+    <div class="top-actions">
+      <a class="btn btn-outline" href="Student_dash.html">Student</a>
+      <button class="btn btn-danger" onclick="logoutStudent()">Logout</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section-title">Certificate Details</div>
+    <div class="card">
+      <p class="notice">Review the extracted details and correct anything if needed.</p>
+      <form id="uploadForm" onsubmit="event.preventDefault(); submitDetails();">
+        <div class="stack">
+          <div>
+            <label class="label" for="certificateName">Certificate File</label>
+            <input class="input" id="certificateName" readonly>
+          </div>
+
+          <div>
+            <label class="label" for="eventName">Event / Activity Name</label>
+            <input class="input" id="eventName" placeholder="Enter event or activity name">
+          </div>
+
+          <div class="form-grid">
+            <div>
+              <label class="label" for="semester">Semester</label>
+              <select class="select" id="semester">
+                <option value="">Select</option>
+                <option>S1</option><option>S2</option><option>S3</option><option>S4</option>
+                <option>S5</option><option>S6</option><option>S7</option><option>S8</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="label" for="zone">Activity Level</label>
+              <select class="select" id="zone">
+                <option value="">Select</option>
+                <option>College</option>
+                <option>Zonal</option>
+                <option>State</option>
+                <option>National</option>
+                <option>International</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="label" for="activityHead">Activity Head</label>
+              <select class="select" id="activityHead">
+                <option value="">Select</option>
+                <option>Sports & Games Participation</option>
+                <option>Cultural Activities Participation</option>
+                <option>Professional Self Initiatives</option>
+                <option>Entrepreneurship and Innovation</option>
+                <option>Leadership & Management</option>
+                <option>National Initiatives Participation</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="label" for="activity">Activity</label>
+              <select class="select" id="activity">
+                <option value="">Select Activity Head first</option>
+              </select>
+            </div>
+
+            <div id="levelBox" class="hidden">
+              <label class="label" for="level">Level</label>
+              <select class="select" id="level">
+                <option value="">Select Level</option>
+                <option>I</option><option>II</option><option>III</option><option>IV</option><option>V</option>
+              </select>
+            </div>
+
+            <div id="prizeBox" class="hidden">
+              <label class="label" for="prize">Prize (if any)</label>
+              <select class="select" id="prize">
+                <option value="">No Prize</option>
+                <option>First Prize</option>
+                <option>Second Prize</option>
+                <option>Third Prize</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="label" for="role">Your Role</label>
+              <select class="select" id="role">
+                <option value="">Select</option>
+                <option>Volunteer</option>
+                <option>Core coordinator</option>
+                <option>Sub coordinator</option>
+                <option>Participant</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="label" for="eventDate">Event Date</label>
+              <input class="input" id="eventDate" type="date">
+            </div>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Submit for Approval</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="rules.js"></script>
+  <script src="upload_details.js"></script>
+</body>
+</html>

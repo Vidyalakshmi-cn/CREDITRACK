@@ -1,0 +1,52 @@
+CREATE DATABASE IF NOT EXISTS creditrack CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE creditrack;
+
+CREATE TABLE IF NOT EXISTS students (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(150) NOT NULL,
+  email VARCHAR(150) NOT NULL UNIQUE,
+  password VARCHAR(256) NOT NULL,
+  rollno VARCHAR(50) NOT NULL,
+  course VARCHAR(100) NOT NULL,
+  branch VARCHAR(100) NOT NULL,
+  division VARCHAR(10) NOT NULL,
+  semester TINYINT NOT NULL,
+  startyear YEAR NOT NULL,
+  endyear YEAR NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS faculty (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(150) NOT NULL,
+  email VARCHAR(150) NOT NULL UNIQUE,
+  password VARCHAR(256) NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS activities (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  student_id INT NOT NULL,
+  event_name VARCHAR(255) DEFAULT '',
+  semester VARCHAR(5) NOT NULL,
+  zone VARCHAR(50) DEFAULT '',
+  head VARCHAR(100) NOT NULL,
+  activity VARCHAR(255) NOT NULL,
+  level VARCHAR(5) DEFAULT '',
+  prize VARCHAR(50) DEFAULT '',
+  role VARCHAR(50) DEFAULT '',
+  event_date DATE NOT NULL,
+  file_path VARCHAR(300) NOT NULL,
+  points INT NOT NULL DEFAULT 0,
+  max_points INT NOT NULL DEFAULT 0,
+  reason TEXT,
+  status ENUM('pending','approved','rejected') NOT NULL DEFAULT 'pending',
+  extracted_text MEDIUMTEXT,
+  extracted_json JSON,
+  submitted_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  reviewed_at DATETIME DEFAULT NULL,
+  reviewed_by INT DEFAULT NULL,
+  faculty_note TEXT DEFAULT NULL,
+  FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE,
+  FOREIGN KEY (reviewed_by) REFERENCES faculty(id) ON DELETE SET NULL
+);

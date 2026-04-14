@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Certificate - CrediTrack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="logo"><span class="c1">Credi</span><span class="c2">Track</span></div>
+    <div class="top-actions">
+      <a class="btn btn-outline" href="Student_dash.html">Student</a>
+      <button class="btn btn-danger" onclick="logoutStudent()">Logout</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section-title">Upload Certificate</div>
+    <div class="card">
+      <p class="notice">Upload your certificate to extract details automatically using OCR and NLP.</p>
+      <label class="upload-drop" for="certificateFile">
+        <div style="font-size:2rem;margin-bottom:.35rem">📂</div>
+        <div style="font-weight:800">Click to upload or drag and drop</div>
+        <div class="hero-sub">PDF, JPG, JPEG, PNG</div>
+      </label>
+      <input id="certificateFile" type="file" hidden accept=".pdf,.jpg,.jpeg,.png">
+      <div id="filePreview" class="notice" style="margin-top:1rem"></div>
+      <button id="uploadBtn" class="btn btn-primary" style="margin-top:1rem">Continue</button>
+    </div>
+  </div>
+  <script src="upload.js"></script>
+</body>
+</html>

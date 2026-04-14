@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faculty Dashboard - CrediTrack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .faculty-shell{
+      max-width: 1100px;
+      margin: 24px auto;
+      padding: 0 18px 28px;
+    }
+
+    .faculty-topbar{
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 26px;
+    }
+
+    .faculty-brand{
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--navy);
+    }
+
+    .faculty-brand span{
+      color: var(--teal);
+    }
+
+    .faculty-user{
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 700;
+      color: var(--teal-dark);
+    }
+
+    .faculty-user-mini{
+      font-size: 0.95rem;
+    }
+
+    .faculty-page{
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin: 18px 0 14px;
+      color: var(--navy);
+    }
+
+    .soft-card{
+      background: rgba(255,255,255,0.92);
+      border: 1px solid #cfe0ea;
+      border-radius: 22px;
+      box-shadow: 0 8px 22px rgba(13,31,45,0.04);
+    }
+
+    .profile-card{
+      padding: 20px 22px;
+      margin-bottom: 18px;
+    }
+
+    .profile-title{
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .faculty-profile-grid{
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+
+    .faculty-field .label{
+      margin-bottom: 4px;
+      color: var(--teal-dark);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+    }
+
+    .faculty-field .value{
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      word-break: break-word;
+    }
+
+    .faculty-stats{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .faculty-stat{
+      padding: 22px 18px;
+      text-align: center;
+    }
+
+    .faculty-stat .icon{
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    .faculty-stat .num{
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .faculty-stat .txt{
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .segmented-tabs{
+      display: inline-flex;
+      gap: 8px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 6px;
+      margin-bottom: 14px;
+    }
+
+    .segmented-tabs button{
+      border: none;
+      background: transparent;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--text-light);
+    }
+
+    .segmented-tabs button.active{
+      background: var(--teal);
+      color: white;
+    }
+
+    .faculty-filters{
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .faculty-filters input,
+    .faculty-filters select{
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      outline: none;
+    }
+
+    .faculty-filters input{
+      min-width: 280px;
+      flex: 1;
+    }
+
+    .submission-card{
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .submission-header{
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .faculty-table{
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+
+    .faculty-table th{
+      font-size: 0.75rem;
+      color: #7c96aa;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 14px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faculty-table td{
+      padding: 15px 14px;
+      border-bottom: 1px solid #e7eef3;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .faculty-table tr:last-child td{
+      border-bottom: none;
+    }
+
+    .status-pill{
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+
+    .status-pending{
+      background: #fff3cf;
+      color: #b98400;
+    }
+
+    .status-approved{
+      background: #dff8f0;
+      color: #00a17f;
+    }
+
+    .status-rejected{
+      background: #ffe4e9;
+      color: #d85068;
+    }
+
+    .approve-btn, .reject-btn{
+      border: none;
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-weight: 800;
+      cursor: pointer;
+      margin-right: 6px;
+    }
+
+    .approve-btn{
+      background: #e4fbf4;
+      color: #00a17f;
+      border: 1px solid #bfeee0;
+    }
+
+    .reject-btn{
+      background: #fff0f3;
+      color: #d85068;
+      border: 1px solid #f3c3cd;
+    }
+
+    .student-link{
+      color: var(--teal-dark);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .tiny-chip{
+      min-width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: #dff8f0;
+      color: var(--teal-dark);
+      font-weight: 800;
+    }
+
+    @media (max-width: 980px){
+      .faculty-profile-grid{
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .faculty-stats{
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px){
+      .faculty-profile-grid{
+        grid-template-columns: 1fr;
+      }
+      .faculty-topbar{
+        padding: 12px 16px;
+      }
+      .faculty-brand{
+        font-size: 1.6rem;
+      }
+      .faculty-table{
+        display: block;
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="faculty-topbar">
+    <div class="faculty-brand">Credi<span>Track</span></div>
+    <div class="faculty-user">
+      <span class="faculty-user-mini" id="facultyTopName">faculty</span>
+      <button class="btn btn-danger" onclick="logoutFaculty()">Logout</button>
+    </div>
+  </div>
+
+  <div class="faculty-shell">
+    <div class="faculty-page">Faculty Dashboard</div>
+
+    <div class="soft-card profile-card">
+      <div class="profile-title">🪪 My Profile</div>
+      <div class="faculty-profile-grid">
+        <div class="faculty-field">
+          <div class="label">Name</div>
+          <div class="value" id="facultyName">-</div>
+        </div>
+        <div class="faculty-field">
+          <div class="label">Email</div>
+          <div class="value" id="facultyEmail">-</div>
+        </div>
+        <div class="faculty-field">
+          <div class="label">Department</div>
+          <div class="value" id="facultyBranch">-</div>
+        </div>
+        <div class="faculty-field">
+          <div class="label">Assigned Class</div>
+          <div class="value" id="facultyClass">-</div>
+        </div>
+        <div class="faculty-field">
+          <div class="label">Batch Duration</div>
+          <div class="value" id="facultyBatch">-</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faculty-stats">
+      <div class="soft-card faculty-stat">
+        <div class="icon">🎓</div>
+        <div class="num" id="totalStudents">0</div>
+        <div class="txt">Total Students</div>
+      </div>
+      <div class="soft-card faculty-stat">
+        <div class="icon">⏳</div>
+        <div class="num" id="pendingApprovals">0</div>
+        <div class="txt">Pending Approvals</div>
+      </div>
+      <div class="soft-card faculty-stat">
+        <div class="icon">✅</div>
+        <div class="num" id="approvedToday">0</div>
+        <div class="txt">Approved Today</div>
+      </div>
+    </div>
+
+    <div class="segmented-tabs">
+      <button class="active" data-tab="pending">⏳ Pending</button>
+      <button data-tab="all">📋 All Submissions</button>
+      <button data-tab="students">🎓 Students</button>
+    </div>
+
+    <div class="faculty-filters">
+      <input type="text" id="searchBox" placeholder="Search student or activity">
+      <select id="classFilter">
+        <option value="">All Classes</option>
+      </select>
+      <select id="statusFilter">
+        <option value="">All Status</option>
+        <option value="pending">Pending</option>
+        <option value="approved">Approved</option>
+        <option value="rejected">Rejected</option>
+      </select>
+    </div>
+
+    <div class="soft-card submission-card">
+      <div class="submission-header" id="tableTitle">⏳ Pending Submissions</div>
+
+      <div id="pendingSection">
+        <table class="faculty-table">
+          <thead>
+            <tr>
+              <th>Student</th>
+              <th>Roll No</th>
+              <th>Class</th>
+              <th>Activity</th>
+              <th>Category</th>
+              <th>Level</th>
+              <th>Date</th>
+              <th>Certificate</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="pendingTableBody"></tbody>
+        </table>
+      </div>
+
+      <div id="allSection" class="hidden">
+        <table class="faculty-table">
+          <thead>
+            <tr>
+              <th>Student</th>
+              <th>Roll No</th>
+              <th>Class</th>
+              <th>Activity</th>
+              <th>Category</th>
+              <th>Level</th>
+              <th>Date</th>
+              <th>Certificate</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="allTableBody"></tbody>
+        </table>
+      </div>
+
+      <div id="studentsSection" class="hidden">
+        <table class="faculty-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Roll No</th>
+              <th>Class</th>
+              <th>Semester</th>
+              <th>Total Points</th>
+              <th>Approved</th>
+              <th>Pending</th>
+            </tr>
+          </thead>
+          <tbody id="studentsTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="faculty_dash.js"></script>
+</body>
+</html>

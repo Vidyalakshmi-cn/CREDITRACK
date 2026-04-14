@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Details - CrediTrack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="logo"><span class="c1">Credi</span><span class="c2">Track</span></div>
+    <div class="top-actions">
+      <a class="btn btn-outline" href="faculty_dash.html">Back to Dashboard</a>
+      <button class="btn btn-danger" onclick="logoutFaculty()">Logout</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section-title" id="studentName">Student Name</div>
+
+    <div class="card" style="margin-bottom:1rem">
+      <div class="profile-grid">
+        <div class="profile-item"><div class="k">Register No</div><div class="v" id="studentRegNo">-</div></div>
+        <div class="profile-item"><div class="k">Course</div><div class="v" id="course">-</div></div>
+        <div class="profile-item"><div class="k">Branch</div><div class="v" id="branch">-</div></div>
+        <div class="profile-item"><div class="k">Semester</div><div class="v" id="semester">-</div></div>
+        <div class="profile-item"><div class="k">Division</div><div class="v" id="division">-</div></div>
+        <div class="profile-item"><div class="k">Duration</div><div class="v" id="duration">-</div></div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat teal"><div class="n" id="totalPoints">0</div><div class="t">Total Points</div></div>
+      <div class="stat green"><div class="n" id="approvedCount">0</div><div class="t">Approved</div></div>
+      <div class="stat amber"><div class="n" id="pendingCount">0</div><div class="t">Pending</div></div>
+      <div class="stat red"><div class="n" id="rejectedCount">0</div><div class="t">Rejected</div></div>
+    </div>
+
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Activity</th>
+              <th>Head</th>
+              <th>Status</th>
+              <th>Points</th>
+              <th>Certificate</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="activityTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="student_view.js"></script>
+</body>
+</html>
