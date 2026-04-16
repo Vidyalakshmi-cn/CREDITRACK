@@ -34,6 +34,7 @@ DB_CONFIG = {
     "user": os.getenv("MYSQL_USER", "root"),
     "password": os.getenv("MYSQL_PASSWORD"),
     "database": os.getenv("MYSQL_DATABASE", "credi"),
+    "ssl_disabled": False,
 }
 
 @contextmanager
