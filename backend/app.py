@@ -34,7 +34,6 @@ DB_CONFIG = {
     "user": os.getenv("MYSQL_USER", "root"),
     "password": os.getenv("MYSQL_PASSWORD"),
     "database": os.getenv("MYSQL_DATABASE", "credi"),
-    "ssl_disabled": False,
 }
 
 @contextmanager
@@ -379,4 +378,5 @@ def serve_file(filename):
     return send_from_directory(app.config["UPLOAD_FOLDER"], filename)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    port = int(os.getenv("PORT", 8080))
+    app.run(host="0.0.0.0", port=port, debug=False)
