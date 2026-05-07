@@ -137,8 +137,8 @@ Open `frontend/Student_dash.html` in your browser or serve via Live Server.
 
 | Name | Role |
 |---|---|
-| Vidhyalakshmi C N | Full Stack Development, OCR Integration, Rules Engine |
-| Aswathi V | Frontend Development, UI Design |
+| Vidhyalakshmi C N |Frontend Development, OCR Integration, Rules Engine |
+| Aswathi V | Backend Development, UI Design |
 | Upasana Udayan | Backend Development, Database Design |
 
 > S6 CSE — Government Engineering College Thrissur, Kerala Technological University
